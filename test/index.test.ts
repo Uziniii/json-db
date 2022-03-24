@@ -3,6 +3,7 @@ import { resolve } from "path"
 import assert from "assert"
 
 const db = new JsonDB(resolve(__dirname, "..", "db", "db.json"), {
+    // password: "azerty123",
     typeChecking: true
 })
 

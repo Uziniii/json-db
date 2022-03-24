@@ -1,4 +1,4 @@
-export type AllType = "string" 
+export type AllTypeString = "string" 
     | "number" 
     | "boolean"
     | "array"
@@ -9,17 +9,28 @@ export type AllType = "string"
     | "bigint"
     | "date"
 
-export type CryptType = "SHA256" | "SHA512"
+export type AllType = string 
+    | number 
+    | boolean 
+    | any[] 
+    | object 
+    | undefined
+    | null
+    | Buffer
+    | BigInt
+    | Date
+
+export type CryptType = "sha256" | "sha512"
 
 export interface Data {
     config: {
         tableSchema: {
             [key: string]: {
-                [key: string]: AllType
+                [key: string]: AllTypeString
             }
         },
         keyValue: {
-            [key: string]: AllType
+            [key: string]: AllTypeString
         }
     },
     index: {
@@ -34,7 +45,7 @@ export interface Data {
 }
 
 export interface Options {
-    password?: string,
     cryptType?: CryptType,
+    wichDataToEncrypt?: "all" | "key" | "table" | "none"
     typeChecking?: boolean
 }
