@@ -15,8 +15,11 @@ export function encrypt(cryptType: CryptType, value: AllType): string {
         case "array":
         case "object":
         case "boolean":
-            value = value as boolean | any[] | object
+        case "null":
+        case "undefined":
+            value = value as null | undefined | boolean | any[] | object
             return encrypt(JSON.stringify(value))
+
 
         default:
             return ""
